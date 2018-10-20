@@ -38,6 +38,14 @@ public class targetMouse : MonoBehaviour {
         // Strength Multiplier
         multiplier *= Mathf.Pow(deltaPos.magnitude, 2);
 
-        rb.AddForce(deltaPos * multiplier, ForceMode.Impulse);
+        rb.AddForce(deltaPos * multiplier * Time.deltaTime, ForceMode.Impulse);
+    }
+
+    public static Vector3 MouseWorldPos()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -4.45f - Camera.main.transform.position.z));
+        pos.z = -4.45f;
+
+        return pos;
     }
 }
