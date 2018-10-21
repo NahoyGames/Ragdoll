@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class GrapplingHook : MonoBehaviour {
 
     [SerializeField] private GameObject hookPrefab;
     [SerializeField] private Transform target;
+    [SerializeField] private Animator activateAnim;
 
     private GameObject hook;
     private SpringJoint hookJoint;
@@ -25,6 +27,7 @@ public class GrapplingHook : MonoBehaviour {
 
     public void FireHook()
     {
+        activateAnim.SetTrigger("AbilityActivated");
         hook = Instantiate(hookPrefab, this.transform.GetChild(1).position, Quaternion.identity);
         hook.GetComponent<Rigidbody>().AddForce((TargetMouse.MouseWorldPos() - hook.transform.position).normalized * 15, ForceMode.Impulse);
         hookCollision = hook.GetComponent<HasCollision>();
