@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class GrapplingHook : MonoBehaviour {
 
     [SerializeField] private GameObject hookPrefab;
     [SerializeField] private Transform target;
     [SerializeField] private Animator activateAnim;
+    [SerializeField] private Image rocketActive;
+    [SerializeField] private Image active;
 
     private GameObject hook;
     private SpringJoint hookJoint;
@@ -27,6 +30,8 @@ public class GrapplingHook : MonoBehaviour {
 
     public void FireHook()
     {
+        rocketActive.enabled = true;
+        active.enabled = false;
         activateAnim.SetTrigger("AbilityActivated");
         hook = Instantiate(hookPrefab, this.transform.GetChild(1).position, Quaternion.identity);
         hook.GetComponent<Rigidbody>().AddForce((TargetMouse.MouseWorldPos() - hook.transform.position).normalized * 15, ForceMode.Impulse);
@@ -35,6 +40,8 @@ public class GrapplingHook : MonoBehaviour {
 
     public void DestroyHook()
     {
+        active.enabled = true;
+        rocketActive.enabled = false;
         Destroy(hook);
     }
 

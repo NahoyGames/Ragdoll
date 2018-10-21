@@ -41,7 +41,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButton("Jump"))
         {
             jetpack.FireJetpack();
-        } 
+            jetpack.Active = true;
+        }
+        else
+        {
+            jetpack.Active = false;
+        }
 
         if (!hasHook)
         {

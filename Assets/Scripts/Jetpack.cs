@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Jetpack : MonoBehaviour {
 
+    [SerializeField] private GameObject[] thursters;
+
     [SerializeField] private Image cooldownUI;
     [SerializeField] private Image cancelUI;
 
@@ -41,6 +43,27 @@ public class Jetpack : MonoBehaviour {
         torso.AddForce((transform.forward + ((TargetMouse.MouseWorldPos() - torso.position).normalized * 2f)) * 12500 * Time.deltaTime, ForceMode.Force);
         fuel = Mathf.Clamp(fuel - (Time.deltaTime * 60), 0, 100);
 
+    }
+
+    public bool Active
+    {
+        get
+        {
+            return false;
+        }
+        set
+        {
+            if (value)
+            {
+                thursters[0].SetActive(true);
+                thursters[1].SetActive(true);
+            }
+            else
+            {
+                thursters[0].SetActive(false);
+                thursters[1].SetActive(false);
+            }
+        }
     }
 
     private void UpdateUI()

@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b, type: 2}
   radius: 10
-  force: 5000
+  force: 10000
 --- !u!136 &136483025235286348
 CapsuleCollider:
   m_ObjectHideFlags: 1
