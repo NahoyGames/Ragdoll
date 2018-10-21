@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.71336186, g: 0.7274847, b: 0.7708995, a: 1}
+  m_IndirectSpecularColor: {r: 0.2936481, g: 0.3344231, b: 0.39687854, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1067,6 +1067,7 @@ GameObject:
   - component: {fileID: 490021122}
   - component: {fileID: 490021123}
   - component: {fileID: 490021124}
+  - component: {fileID: 490021125}
   m_Layer: 10
   m_Name: Left Forearm
   m_TagString: Player
@@ -1190,6 +1191,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookPrefab: {fileID: 1417666441588046, guid: 19ad414714ba142bc8f092658fb4dd00, type: 2}
   target: {fileID: 1033729832}
+--- !u!114 &490021125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490021117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36eb1cc70f664cc994d020dfbfd5dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1633,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 758504e4555364d2ca1d1c031574b460, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2507,7 +2519,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 758504e4555364d2ca1d1c031574b460, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

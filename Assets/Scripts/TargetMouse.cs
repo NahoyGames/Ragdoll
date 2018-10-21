@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class targetMouse : MonoBehaviour {
+public class TargetMouse : MonoBehaviour {
 
     [SerializeField] private Transform target;
     [SerializeField] private MultipleCollisions col;
@@ -18,12 +18,17 @@ public class targetMouse : MonoBehaviour {
 	
 	void Update ()
     {
+
+
+	}
+
+    public void PhysicsMoveToMouse()
+    {
         if (col.HasACollision())
         {
             PhyiscsGoTo(Input.mousePosition, strength);
         }
-
-	}
+    }
 
     private void PhyiscsGoTo(Vector3 pos, float multiplier)
     {
@@ -34,6 +39,7 @@ public class targetMouse : MonoBehaviour {
         // Get the force to be applied and restrict it
         Vector3 deltaPos = pos - target.position;
         deltaPos = Vector3.ClampMagnitude(deltaPos, 1);
+        deltaPos.x /= 2;
 
         // Strength Multiplier
         multiplier *= Mathf.Pow(deltaPos.magnitude, 2);

@@ -14,17 +14,7 @@ public class GrapplingHook : MonoBehaviour {
     private void Update()
     {
         // TODO temporary hook fire input
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (HasHook)
-            {
-                DestroyHook();
-            }
-            else
-            {
-                FireHook();
-            }
-        }
+
 
         // Hook update
         if (hook != null)
@@ -36,7 +26,7 @@ public class GrapplingHook : MonoBehaviour {
     public void FireHook()
     {
         hook = Instantiate(hookPrefab, this.transform.GetChild(1).position, Quaternion.identity);
-        hook.GetComponent<Rigidbody>().AddForce((targetMouse.MouseWorldPos() - hook.transform.position).normalized * 15, ForceMode.Impulse);
+        hook.GetComponent<Rigidbody>().AddForce((TargetMouse.MouseWorldPos() - hook.transform.position).normalized * 15, ForceMode.Impulse);
         hookCollision = hook.GetComponent<HasCollision>();
     }
 
@@ -70,7 +60,7 @@ public class GrapplingHook : MonoBehaviour {
         if (hookJoint != null) // Pull the hook up
         {
             Vector3 anchor = hookJoint.connectedAnchor;
-            hookJoint.connectedAnchor = anchor.normalized * Mathf.Clamp((float)(anchor.magnitude - 0.5), 3, 1000);
+            hookJoint.connectedAnchor = anchor.normalized * Mathf.Clamp((float)(anchor.magnitude - 1), 3, 1000);
         }
         else if (hookCollision.IsColliding) // Hook Collision
         {

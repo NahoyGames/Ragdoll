@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEditor;
 
 public class AutoFocus : MonoBehaviour {
 
@@ -20,6 +21,14 @@ public class AutoFocus : MonoBehaviour {
 
     private void Update()
     {
+        dof.focusDistance.value = (target.position - this.transform.position).magnitude;
+    }
+
+    [ContextMenu("Update Depth of Field")]
+    public void UpdateDof()
+    {
+        PostProcessVolume ppv = GetComponent<PostProcessVolume>();
+        ppv.profile.TryGetSettings(out dof);
         dof.focusDistance.value = (target.position - this.transform.position).magnitude;
     }
 
