@@ -7,8 +7,8 @@ public class Jetpack : MonoBehaviour {
 
     [SerializeField] private GameObject[] thursters;
 
-    [SerializeField] private Image cooldownUI;
-    [SerializeField] private Image cancelUI;
+    private Image cooldownUI;
+    private Image cancelUI;
 
     float fuel;
     bool overheated = false;
@@ -18,6 +18,8 @@ public class Jetpack : MonoBehaviour {
     private void Start()
     {
         torso = transform.GetComponentInParent<Rigidbody>();
+        cooldownUI = GameObject.Find("Canvas").transform.Find("Jetpackfill").GetComponent<Image>();
+        cancelUI = GameObject.Find("Canvas").transform.Find("jetpackCancel").GetComponent<Image>();
     }
 
     private void Update()

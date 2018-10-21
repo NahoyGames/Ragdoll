@@ -6,9 +6,14 @@ public class RocketLauncher : MonoBehaviour {
 
     [SerializeField] private GameObject rocketPrefab;
     [SerializeField] private GameObject rocketTrail;
-    [SerializeField] private Animator activateAnim;
+    private Animator activateAnim;
 
     [SerializeField] private Transform target;
+
+    private void Start()
+    {
+        activateAnim = GameObject.Find("Canvas").transform.Find("rocketActivate").GetComponent<Animator>();
+    }
 
     public void FireRocket()
     {

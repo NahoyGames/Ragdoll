@@ -7,12 +7,13 @@ public class TargetMouse : MonoBehaviour {
     [SerializeField] private Transform target;
     [SerializeField] private MultipleCollisions col;
     [SerializeField] private float strength;
-    [SerializeField] private Camera cam;
 
+    private Camera cam;
     private Rigidbody rb;
 
 	void Start ()
     {
+        cam = Camera.main;
         rb = GetComponent<Rigidbody>();
 	}
 	

@@ -8,13 +8,20 @@ public class GrapplingHook : MonoBehaviour {
 
     [SerializeField] private GameObject hookPrefab;
     [SerializeField] private Transform target;
-    [SerializeField] private Animator activateAnim;
-    [SerializeField] private Image rocketActive;
-    [SerializeField] private Image active;
+    private Animator activateAnim;
+    private Image rocketActive;
+    private Image active;
 
     private GameObject hook;
     private SpringJoint hookJoint;
     private HasCollision hookCollision;
+
+    private void Start()
+    {
+        activateAnim = GameObject.Find("Canvas").transform.Find("hookActivate").GetComponent<Animator>();
+        rocketActive = GameObject.Find("Canvas").transform.Find("rocketCancel").GetComponent<Image>();
+        active = GameObject.Find("Canvas").transform.Find("HookFill").GetComponent<Image>();
+    }
 
     private void Update()
     {
