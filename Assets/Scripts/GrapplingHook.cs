@@ -60,7 +60,7 @@ public class GrapplingHook : MonoBehaviour {
         }
     }
 
-    private void FinishHook()
+    private void FinishHook(Transform t)
     {
         hookJoint = hook.AddComponent<SpringJoint>();
 
@@ -69,8 +69,14 @@ public class GrapplingHook : MonoBehaviour {
         hookJoint.spring = 1000;
         hookJoint.damper = 100;
 
-        hook.GetComponent<Rigidbody>().isKinematic = true;
-        hook.transform.SetParent(hookCollision.LastCollidedObject.transform);
+        hook.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        if (t == null)
+        {
+            hook.transform.SetParent(hookCollision.LastCollidedObject.transform);
+        } else
+        {
+            hook.transform.SetParent(t);
+        }
     }
 
     private void UpdateHook()
@@ -82,7 +88,7 @@ public class GrapplingHook : MonoBehaviour {
         }
         else if (hookCollision.IsColliding) // Hook Collision
         {
-            FinishHook();
+            FinishHook(null);
         }
         else // Hook in-between Collision
         {
@@ -93,7 +99,7 @@ public class GrapplingHook : MonoBehaviour {
                 {
                     hook.transform.position = hit.point;
 
-                    FinishHook();
+                    FinishHook(hit.transform);
                 }
             }
         }

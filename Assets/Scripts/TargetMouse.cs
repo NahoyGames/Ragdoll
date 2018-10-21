@@ -31,7 +31,7 @@ public class TargetMouse : MonoBehaviour {
         }
         else
         {
-            PhyiscsGoTo(Input.mousePosition, strength / 2);
+            PhyiscsGoTo(Input.mousePosition, strength / 3);
         }
     }
 
