@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    [SerializeField] private Jetpack jetpack;
+    RocketLauncher rLauncher;
+
     TargetMouse targetMouse;
     GrapplingHook gHook;
 
@@ -11,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     {
         targetMouse = GetComponent<TargetMouse>();
         gHook = GetComponent<GrapplingHook>();
+        rLauncher = GetComponent<RocketLauncher>();
     }
 
     private void Update()
@@ -28,6 +32,16 @@ public class PlayerController : MonoBehaviour {
                 gHook.FireHook();
             }
         }
+
+        if (Input.GetButtonDown("Fire2") && !hasHook)
+        {
+            rLauncher.FireRocket();
+        }
+
+        if (Input.GetButton("Jump"))
+        {
+            jetpack.FireJetpack();
+        } 
 
         if (!hasHook)
         {

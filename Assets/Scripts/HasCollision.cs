@@ -14,9 +14,19 @@ public class HasCollision : MonoBehaviour {
         }
     }
 
+    GameObject lastCollidedObject;
+    public GameObject LastCollidedObject
+    {
+        get
+        {
+            return lastCollidedObject;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         isColliding |= collision.gameObject.tag == "Environment";
+        lastCollidedObject = collision.collider.gameObject;
     }
 
     private void OnCollisionExit(Collision collision)

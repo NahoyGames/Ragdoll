@@ -53,6 +53,7 @@ public class GrapplingHook : MonoBehaviour {
         hookJoint.damper = 100;
 
         hook.GetComponent<Rigidbody>().isKinematic = true;
+        hook.transform.SetParent(hookCollision.LastCollidedObject.transform);
     }
 
     private void UpdateHook()

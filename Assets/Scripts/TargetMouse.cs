@@ -28,6 +28,10 @@ public class TargetMouse : MonoBehaviour {
         {
             PhyiscsGoTo(Input.mousePosition, strength);
         }
+        else
+        {
+            PhyiscsGoTo(Input.mousePosition, strength / 2);
+        }
     }
 
     private void PhyiscsGoTo(Vector3 pos, float multiplier)
