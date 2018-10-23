@@ -37,6 +37,11 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
+        if (Input.GetButtonUp("Fire1"))
+        {
+            //gHook.DestroyHook();
+        }
+
         if (Input.GetButtonDown("Fire2") && !hasHook)
         {
             rLauncher.FireRocket();
