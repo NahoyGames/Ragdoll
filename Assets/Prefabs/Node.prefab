@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33868711250850458}
   - component: {fileID: 23856977712978554}
   - component: {fileID: 135838854386940804}
-  - component: {fileID: 54854757648234162}
   m_Layer: 9
   m_Name: Node
   m_TagString: Untagged
@@ -85,21 +84,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1417666441588046}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54854757648234162
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1417666441588046}
-  serializedVersion: 2
-  m_Mass: 0.25
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 8
-  m_CollisionDetection: 0
 --- !u!135 &135838854386940804
 SphereCollider:
   m_ObjectHideFlags: 1

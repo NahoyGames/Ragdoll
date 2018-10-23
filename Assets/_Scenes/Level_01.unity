@@ -320,6 +320,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &174093835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114621273868607880, guid: 7c51277029e7e4f15a0174330370c459,
+    type: 2}
+  m_PrefabInternal: {fileID: 510740007}
+  m_Script: {fileID: 11500000, guid: 78a12a6ceaaff47ce99f05fffc469093, type: 3}
 --- !u!1001 &177808152
 Prefab:
   m_ObjectHideFlags: 0
@@ -2219,6 +2225,17 @@ Prefab:
       propertyPath: EmissionModule.rateOverDistance.scalar
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 114553873590298370, guid: 7c51277029e7e4f15a0174330370c459,
+        type: 2}
+      propertyPath: nodePrefab
+      value: 
+      objectReference: {fileID: 1417666441588046, guid: 0c07ba79fd4e446839aaf82063a47bf5,
+        type: 2}
+    - target: {fileID: 114514259126390140, guid: 7c51277029e7e4f15a0174330370c459,
+        type: 2}
+      propertyPath: collisions
+      value: 
+      objectReference: {fileID: 174093835}
     m_RemovedComponents:
     - {fileID: 114353741390969446, guid: 7c51277029e7e4f15a0174330370c459, type: 2}
     - {fileID: 114333717720191782, guid: 7c51277029e7e4f15a0174330370c459, type: 2}
@@ -2420,6 +2437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1606712576}
+  hook: {fileID: 0}
 --- !u!114 &534669911
 MonoBehaviour:
   m_ObjectHideFlags: 0

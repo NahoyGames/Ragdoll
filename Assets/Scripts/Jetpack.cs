@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Jetpack : MonoBehaviour {
 
     [SerializeField] private GameObject[] thursters;
+    [SerializeField] private MultipleCollisions collisions;
 
     private Image cooldownUI;
     private Image cancelUI;
 
     float fuel;
     bool overheated = false;
+    bool activated = false;
 
     Rigidbody torso;
 
@@ -24,7 +26,12 @@ public class Jetpack : MonoBehaviour {
 
     private void Update()
     {
-        fuel = Mathf.Clamp(fuel + (Time.deltaTime * 30), 0, 100);
+        if (!activated)
+        {
+            fuel = collisions.HasACollision()
+                ? Mathf.Clamp(fuel + (Time.deltaTime * 60), 0, 100)
+                : Mathf.Clamp(fuel + (Time.deltaTime * 10), 0, 100);
+        }
 
         if (fuel >= 99)
         {
@@ -42,8 +49,12 @@ public class Jetpack : MonoBehaviour {
             return;
         }
 
-        torso.AddForce((transform.forward + ((TargetMouse.MouseWorldPos() - torso.position).normalized * 2f)) * 12500 * Time.deltaTime, ForceMode.Force);
-        fuel = Mathf.Clamp(fuel - (Time.deltaTime * 60), 0, 100);
+        Vector3 force = (transform.forward + ((TargetMouse.MouseWorldPos() - torso.position).normalized * 2f)) * 24500 * Time.deltaTime;
+        force.z = 0;
+
+        torso.AddForce(force, ForceMode.Force);
+        Debug.Log(force);
+        fuel = Mathf.Clamp(fuel - (Time.deltaTime * 45), 0, 100);
 
     }
 
@@ -51,7 +62,7 @@ public class Jetpack : MonoBehaviour {
     {
         get
         {
-            return false;
+            return activated;
         }
         set
         {
@@ -59,11 +70,15 @@ public class Jetpack : MonoBehaviour {
             {
                 thursters[0].SetActive(true);
                 thursters[1].SetActive(true);
+
+                activated = true;
             }
             else
             {
                 thursters[0].SetActive(false);
                 thursters[1].SetActive(false);
+
+                activated = false;
             }
         }
     }
